@@ -1,0 +1,20 @@
+---
+- name: Install Emacs
+  apt: name=emacs state=latest update_cache=yes
+- name: Install Build packages for Erlang
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - git
+    - autoconf
+    - libncurses-dev
+    - build-essential
+    - default-jdk
+    - libwxgtk2.8-dev
+    - libgl1-mesa-dev
+    - libglu1-mesa-dev
+    - libpng3
+    - g++
+- name: Download Erlang
+  git: repo=git://github.com/erlang/otp.git dest=~/erlang version=OTP-18.3
+- name: Install Erlang
+  shell: "cd ~/erlang && ./configure && make && sudo make install"
