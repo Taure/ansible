@@ -1,23 +1,6 @@
 ---
 - name: Install Emacs
   apt: name=emacs state=latest update_cache=yes
-- name: Install Build packages for Erlang
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - git
-    - autoconf
-    - libncurses-dev
-    - build-essential
-    - default-jdk
-    - libwxgtk2.8-dev
-    - libgl1-mesa-dev
-    - libglu1-mesa-dev
-    - libpng3
-    - g++
-    - yaml-mode
-- name: Download Erlang
-  get_url: url=http://erlang.org/download/otp_src_18.3.tar.gz dest=/home/daniel/
-- name: Unarchive erlang
-  unarchive: src=/home/daniel/otp_src_18.3.tar.gz dest=/home/daniel
-- name: Install Erlang
-  shell: "cd /home/daniel/otp_src_18.3 && ./configure && make && sudo make install"
+
+- name: Install Pip
+  apt: name=python-pip state=latest update_cache=yes

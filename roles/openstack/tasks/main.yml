@@ -1,0 +1,10 @@
+---
+- name: Install Openstack clients from apt
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - python-neutronclient
+    - python-novaclient
+
+- name: Install Shade from pip
+  pip: name=shade
+
