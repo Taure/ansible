@@ -13,6 +13,7 @@
     - libpng-dev
     - g++
     - yaml-mode
+    - libssl-dev
 - name: Download Erlang
   get_url: url=http://erlang.org/download/otp_src_22.0.tar.gz dest=/home/daniel/
 - name: Unarchive erlang
